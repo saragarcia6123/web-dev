@@ -1,0 +1,224 @@
+:root {
+    --fs-prompt: 0.6rem;
+    --fs-input: 1rem;
+    --fs-amounts: 0.6rem;
+
+    --bg-body: white;
+}
+
+@media (min-width: 100px) and (min-height: 100px) {
+    :root {
+        --fs-prompt: 0.625rem;
+        --fs-input: 2.5rem;
+        --fs-amounts: 0.5rem;
+    }
+}
+
+@media (min-width: 200px) and (min-height: 200px) {
+    :root {
+        --fs-prompt: 1.25rem;
+        --fs-input: 5rem;
+        --fs-amounts: 1rem;
+    }
+}
+
+@media (min-width: 300px) and (min-height: 300px) {
+    :root {
+        --fs-prompt: 1.875rem;
+        --fs-input: 7.5rem;
+        --fs-amounts: 1.5rem;
+    }
+}
+
+@media (min-width: 400px) and (min-height: 400px) {
+    :root {
+        --fs-prompt: 2.5rem;
+        --fs-input: 10rem;
+        --fs-amounts: 2rem;
+    }
+}
+
+@media (min-width: 500px) and (min-height: 500px) {
+    :root {
+        --fs-prompt: 3.25rem;
+        --fs-input: 13rem;
+        --fs-amounts: 2.625rem;
+    }
+}
+
+@media (min-width: 600px) and (min-height: 600px) {
+    :root {
+        --fs-prompt: 4rem;
+        --fs-input: 16rem;
+        --fs-amounts: 3.25rem;
+    }
+}
+
+@media (min-width: 700px) and (min-height: 700px) {
+    :root {
+        --fs-prompt: 4.5rem;
+        --fs-input: 18rem;
+        --fs-amounts: 3.625rem;
+    }
+}
+
+@media (min-width: 800px) and (min-height: 800px) {
+    :root {
+        --fs-prompt: 5rem;
+        --fs-input: 20rem;
+        --fs-amounts: 4rem;
+    }
+}
+
+main, .content-container {
+    container-type: inline-size;
+    container-name: content-container;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--bg-body);
+    caret-color: transparent;
+    cursor: default;
+    user-select: none;
+}
+
+@container content-container (max-width: 10000px) {
+    html, body {
+        background-color: black;
+    }
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 1.5em;
+}
+
+.outer-container {
+    display: flex;
+    width: 95%;
+    height: 100vw;
+    padding: 0;
+    max-height: 95vh;
+    max-width: 100vw;
+    min-width: 80px;
+    min-height: 80px;
+}
+
+@media (min-width: 800px) {
+    .outer-container {
+        background-position-x: left;
+    }
+}
+
+.inner-container {
+    padding: .5em;
+    width: 800px;
+    height: 800px;
+    max-width: 100vh;
+    max-height: 100%;
+    background-color: rgb(253, 234, 255);
+    background-image: url(img/sakura-bg.jpg);
+    background-blend-mode: multiply;
+    background-size: cover;
+    border-radius: 20%;
+    padding: 0;
+    display: flex;
+    margin: auto;
+}
+
+.content-container {
+    border: 8px solid rgba(255, 136, 239, 0.582);
+    border-radius: inherit;
+    background-color: rgba(255, 255, 255, 0.541);
+    padding: 0.5em;
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-container {
+    margin: 0;
+    padding: 0em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 95%;
+    width: max-content;
+}
+
+.container-text {
+    color: rgb(255, 108, 235);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgba(168, 47, 152, 0.425);
+}
+
+.prompt-container {
+    font-size: var(--fs-prompt);
+    border: 3px solid rgba(255, 136, 239, 0.582);
+    background-color: rgba(255, 208, 235, 0.757);
+    border-radius: 2vw;
+    height: fit-content;
+    padding: .3em;
+    cursor: pointer;
+}
+
+.middle-container {
+    width: 500px;
+    max-width: 80%;
+    height: fit-content;
+    margin: .2em auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.input {
+    font-size: var(--fs-input);
+}
+
+.number-container {
+    flex: 1;
+}
+
+.plus-container, .minus-container {
+    border: 3px solid rgba(255, 136, 239, 0.582);
+    background-color: rgba(255, 255, 255, 0.568);
+    border-radius: 50%;
+    width: calc(var(--fs-input)/2);
+    height: calc(var(--fs-input)/2);
+    cursor: pointer;
+}
+
+.plus, .minus {
+    font-size: calc(var(--fs-input)/1.5);
+}
+
+.minus {
+    position: relative;
+    top: -.08em;
+}
+
+.amounts-container {
+    font-size: var(--fs-amounts);
+    height: 1em;
+}
