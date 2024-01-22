@@ -144,7 +144,7 @@ body {
     border: 8px solid rgba(255, 136, 239, 0.582);
     border-radius: inherit;
     background-color: rgba(255, 255, 255, 0.541);
-    padding: 0.5em;
+    padding: 3em;
     max-height: 100%;
     max-width: 100%;
     width: 100%;
@@ -187,9 +187,10 @@ body {
     height: fit-content;
     margin: .2em auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
+    flex: 1;
 }
 
 .input {
@@ -204,8 +205,8 @@ body {
     border: 3px solid rgba(255, 136, 239, 0.582);
     background-color: rgba(255, 255, 255, 0.568);
     border-radius: 50%;
-    width: calc(var(--fs-input)/2);
-    height: calc(var(--fs-input)/2);
+    width: calc(var(--fs-input)/2.5);
+    height: calc(var(--fs-input)/2.5);
     cursor: pointer;
 }
 

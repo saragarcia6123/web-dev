@@ -9,6 +9,7 @@ if (document.readyState == 'loading') {
 function ready() {
     inputField = document.getElementById('input-field')
     document.addEventListener("keydown", onKeyDown)
+    window.addEventListener('resize', onResize)
     document.getElementById('minus-input').addEventListener("click", onMinusClick)
     document.getElementById('plus-input').addEventListener("click", onPlusClick)
     document.getElementById('enter-input').addEventListener("click", onEnterClick)
@@ -25,12 +26,17 @@ function onKeyDown(e) {
     }   
 }
 
+function onResize() {
+    resizeInput()
+}
+
 function onMinusClick() {
     var currentNum = parseInt(inputField.innerText)
     if (currentNum > 0) {
         currentNum--
         inputField.innerText = currentNum
     }
+    resizeInput()
 }
 
 function onPlusClick() {
@@ -39,6 +45,7 @@ function onPlusClick() {
         currentNum++
         inputField.innerText = currentNum
     }
+    resizeInput()
 }
 
 function onBackspaceClick() {
@@ -74,17 +81,14 @@ function onNumberEnter(e) {
 
 function resizeInput() {
 
-    //get the current variable for the font size
-    //change it        
-
-    var style = getComputedStyle(document.body)
-    var inputFontSize = style.getPropertyValue('--fs-input')
+    var style = getComputedStyle(inputField).getPropertyValue('--fs-input')
+    var initialFS = parseFloat(style.replace(/\D/g, ""))
     if (inputField.innerText.length == 1) {
-        inputFontSize = "0.5em"
-        inputField.fontSize = inputFontSize
+        inputField.style.fontSize = style
     } else if (inputField.innerText.length == 2) {
-        inputField.style.fontSize = inputFontSize*0.8
+        inputField.style.fontSize = initialFS*0.8 + "rem"
     } else if (inputField.innerText.length == 3) {
-        inputField.style.fontSize = inputFontSize*0.5
+        inputField.style.fontSize = initialFS*0.5 + "rem"
     }
+
 }
