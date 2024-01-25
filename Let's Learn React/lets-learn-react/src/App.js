@@ -1,15 +1,15 @@
 import Home from './Home';
 import Navbar from './Navbar';
-import Blog from './Blog';
+import DarkModeButton from './DarkModeButton'
 
 function App() {
   return (
     <div className="App">
       <Navbar /> 
       <main>
-        <Blog />
+        <Home />
       </main>
-      <Home />
+      <DarkModeButton />
     </div>
   );
 }

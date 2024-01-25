@@ -1,21 +1,15 @@
-import { useState } from "react";
+import BlogList from "./BlogList";
+import useFetch from "./useFetch"
 
 const Home = () => {
 
-    const themes = ['Light', 'Dark']
-
-    const [theme, setTheme] = useState(themes[0]);
-
-    const changeTheme = () => {
-        var element = document.body;
-        element.classList.toggle("dark-mode");
-        const n = (theme === themes[0]) ? 1 : 0
-        setTheme(themes[n])
-    }
+    const { data: blogs, isPending, error } = useFetch('http://localhost:8000/blogs')
 
     return (
-        <div className="content">
-            <button className="btn" onClick={ changeTheme }>Toggle {theme} Mode</button>
+        <div className="home">
+            {error && <div>{ error }</div>}
+            {isPending && <div className="container"><h1 className="loading-message">Loading...</h1></div>}
+            {blogs && <BlogList blogs={blogs} title="Blogs"/>}
         </div>
     );
 };
