@@ -221,5 +221,6 @@ body {
 
 .amounts-container {
     font-size: var(--fs-amounts);
-    height: 1em;
+    height: fit-content;
+    max-width: fit-content;
 }

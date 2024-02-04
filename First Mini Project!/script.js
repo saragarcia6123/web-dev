@@ -41,7 +41,7 @@ function onMinusClick() {
 
 function onPlusClick() {
     var currentNum = parseInt(inputField.innerText)
-    if (currentNum < 99) {
+    if (currentNum < 999) {
         currentNum++
         inputField.innerText = currentNum
     }
@@ -60,7 +60,7 @@ function onEnterClick() {
     var previousAmounts = document.getElementById('previous-amounts')
     if (previousAmounts.innerText == "0") {
         previousAmounts.innerText = inputField.innerText
-    } else {
+    } else if (inputField.innerText != "0") {
         previousAmounts.innerText = previousAmounts.innerText + " - " + inputField.innerText
     }
     

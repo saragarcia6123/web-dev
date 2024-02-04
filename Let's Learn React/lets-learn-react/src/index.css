@@ -6,13 +6,24 @@
   font-family: "Quicksand";
 }
 
+/* Color variables */
+:root {
+  --primary-color: #ea3c70;
+  --primary-color-light:rgb(243, 106, 168);
+  --dark-gray: #666666;
+  --light-gray: #afafaf;
+}
+
 main {
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .light-mode {
   .button {
-    background-color: #666666;
+    background-color: var(--dark-gray);
     color: white;
   }
 }
@@ -23,7 +34,7 @@ main {
     color: rgb(218, 218, 218);
   }
   .button {
-    background-color: rgb(230, 230, 230);
+    background-color: white;
     color: #333;
   }
   a {
@@ -41,30 +52,49 @@ main {
   padding: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 90%;
   max-width: 700px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
-  height: 5rem;
+  height: fit-content;
 }
-.navbar h1 {
+
+.nav-content {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.logo {
   color: #f1356d;
+}
+
+.navbar .logo {
   padding: .4em;
+  white-space: nowrap;
 }
 
 .navbar h1:hover {
-  border-bottom: 1px solid #f1356d;
-  margin-bottom: -1px;
+  color: var(--primary-color-light);
   cursor: pointer;
 }
 
 .navbar .links {
   margin-left: auto;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
 .nav-item {
   text-decoration: none;
   margin: 0 0.5em;
   color: #666666;
+}
+
+.links .create-button {
+  margin: 0;
 }
 
 .nav-item:hover {
@@ -104,7 +134,7 @@ main {
 }
 
 .list-title {
-  color: #f1356d;
+  color: var(--primary-color);
   text-transform: uppercase;
   padding-bottom: .2em;
   border-bottom: 1px solid #f1356d8d;
@@ -112,10 +142,15 @@ main {
   width: fit-content;
 }
 
+.header-title {
+  color: var(--primary-color);
+  text-align: center;
+}
+
 .container {
-  margin: .5em auto;
+  margin: 0 auto;
   width: 100%;
-  min-width: fit-content;
+  max-width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,7 +190,7 @@ main {
 
 .blog-title {
   font-size: 20px;
-  color: #f1356d;
+  color: var(--primary-color);
   text-align: center;
   padding-left: .2em;
   float: left;
@@ -167,14 +202,14 @@ main {
   cursor: pointer;
 }
 
-.header-container, .footer-container {
+.header-container, .middle-container, .footer-container {
   display: flex;
   align-items: center;
   padding-bottom: .5em;
   width: 100%;
 }
 
-.header-container {
+.header-container, .middle-container {
   justify-content: space-between;
 }
 
@@ -191,14 +226,29 @@ main {
 .blog-author {
   margin-right: .5em;
   padding-bottom: .1em;
-  color: #6b6b6b;
+  color: var(--dark-gray);
   text-transform: uppercase;
 }
 
+.blog-date {
+  color: var(--dark-gray);
+}
+
 .blog-preview {
-  display: inline-block;
-  padding-left: .1em;
+  padding-left: .2em;
   width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--dark-gray);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: var(--dark-gray);
 }
 
 .button {
@@ -208,11 +258,102 @@ main {
   color: #ffffff;
   right: .5em;
   border: none;
-  background-color: #a8a8a8;
+  background-color: var(--light-gray);
   border-radius: 6px;
 }
 
 .button:hover {
   cursor: pointer;
-  color: #d2d2d2;
+  color: white;
+}
+
+.BlogPost {
+  position: relative;
+  height: fit-content;
+  padding-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  max-width: 1200px;
+}
+
+.content {
+  padding: 0 2em;
+  flex: 1;
+  height: 100%;
+}
+
+.post-footer {
+  position: sticky;
+  background-color: white;
+  bottom: 0;
+  height: 7vh;
+  width: 95%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: .5em;
+  border-top: 1px solid rgba(128, 128, 128, 0.596);
+}
+
+.post-footer .button {
+  height: 2em;
+}
+
+/* form */
+
+.Create {
+  width: 95%;
+  max-width: 1000px;
+}
+
+form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2em auto;
+  
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 70%;
+  margin: .5em auto;
+}
+
+.char-count {
+  background-color: #666666;
+  width: fit-content;
+}
+
+.form-label {
+  width: 3em;
+  padding: .6em;
+}
+
+.count-input {
+  width: 100%;
+}
+
+.form-input {
+  width: 100%;
+}
+
+.input-box {
+  width: 100%;
+  padding: 10px;
+  resize: none;
+  font-size: 16px;
+  border: 2px solid #bcbcbc;
+  border-radius: 5px;
+}
+
+.input-box:focus {
+  outline-color: var(--primary-color) !important;
 }
